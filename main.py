@@ -33,12 +33,16 @@ def perfil(request: Request):
 
 @app.get("/equipo")
 async def calcular(request: Request):
-    equipo_datos = [{"nombre": "Alex", "posicion": "portero" , "goles": 0 },
-              {"nombre": "Matias", "posicion": "defensa" , "goles": 1 },
-              {"nombre": "Duque", "posicion": "delantero" , "goles": 4 },
-              {"nombre": "Aron", "posicion": "centro campo" , "goles": 0 },
-              {"nombre": "Jesus", "posicion": "defensa" , "goles": 0 },
-              {"nombre": "Alexis", "posicion": "centro campo" , "goles": 1 },]
+    equipo_datos = [
+        {"nombre": "Alex", "posicion": "portero", "goles": 0},
+        {"nombre": "Matias", "posicion": "defensa", "goles": 1},
+        {"nombre": "Duque", "posicion": "delantero", "goles": 4},
+        {"nombre": "Aron", "posicion": "centro campo", "goles": 2},
+        {"nombre": "Jesus", "posicion": "defensa", "goles": 0},
+        {"nombre": "Alexis", "posicion": "centro campo", "goles": 1},
+    ]
     
-    return templates.TemplateResponse(request=request, name="equipo.html", context={"datos": equipo_datos})
 
+    total_goles = sum(jugador["goles"] for jugador in equipo_datos)
+    
+    return templates.TemplateResponse(request=request, name="equipo.html", context={"datos": equipo_datos, "total": total_goles})
