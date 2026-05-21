@@ -24,3 +24,21 @@ async def calculadora(request: Request, a: float, b:float, operation:str):
 @app.get("/")
 async def raiz(request: Request):
     return templates.TemplateResponse(request=request, name="base.html")
+
+@app.get("/perfil")
+def perfil(request: Request):
+    persona = {"nombre": "Ana", "edad": 18 , "hobby": "Trotar" }
+    
+    return templates.TemplateResponse(request=request, name="perfil.html", context={"usuario": persona})
+
+@app.get("/equipo")
+async def calcular(request: Request):
+    equipo_datos = [{"nombre": "Alex", "posicion": "portero" , "goles": 0 },
+              {"nombre": "Matias", "posicion": "defensa" , "goles": 1 },
+              {"nombre": "Duque", "posicion": "delantero" , "goles": 4 },
+              {"nombre": "Aron", "posicion": "centro campo" , "goles": 0 },
+              {"nombre": "Jesus", "posicion": "defensa" , "goles": 0 },
+              {"nombre": "Alexis", "posicion": "centro campo" , "goles": 1 },]
+    
+    return templates.TemplateResponse(request=request, name="equipo.html", context={"datos": equipo_datos})
+

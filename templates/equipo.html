@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block titulo %}Ejercicios-Equipo{% endblock %}
+{% block content %}
+    <h2>Super equipo 11-3</h2>
+    <table border="1">
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Posicion</th>
+            <th>goles</th>
+        </tr>
+        {% for dato in datos %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ dato.nombre }}</td>
+            <td>{{ dato.posicion }}</td>
+            <td>{{ dato.goles }}</td>
+            
+            
+        </tr>
+        {% endfor %}
+        <tr>
+            <th rowspan="3">Total Goles</th>
+        </tr>
+    </table>
+{% endblock %}

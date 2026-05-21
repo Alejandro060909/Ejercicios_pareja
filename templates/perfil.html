@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block titulo %}Ejercicios-perfil{% endblock %}
+{% block encabezado %}perfil{% endblock %}
+
+{% block content %}
+   <h1>Datos de la persona</h1> 
+   <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Hobby</th>
+        </tr>
+        <tr>                          
+            <td>{{ usuario.nombre }}</td>
+            <td>{{ usuario.edad }}</td>
+            <td>{{ usuario.hobby }}</td>
+        </tr>
+    </table>
+{% endblock %}
