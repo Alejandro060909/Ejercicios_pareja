@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}Mi Sitio{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block encabezado %}Bienvenido{% endblock %}</h1>
+    </header>
+
+
+    <main>
+        {% block contenido %}
+        <p>Contenido por defecto.</p>
+        {% endblock %}
+    </main>
+
+
+</body>
+</html>
