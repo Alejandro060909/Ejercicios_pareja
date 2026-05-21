@@ -20,3 +20,7 @@ async def calculadora(request: Request, a: float, b:float, operation:str):
 
     return  templates.TemplateResponse(request=request, name="calcular.html", context={"operation":operation, "resultado":resultado, "a":a, "b":b})
 
+
+@app.get("/")
+async def raiz(request: Request):
+    return templates.TemplateResponse(request=request, name="base.html")
